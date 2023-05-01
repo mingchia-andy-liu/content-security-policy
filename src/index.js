@@ -123,12 +123,5 @@ app.get(
   }
 );
 
-
-/**
- * Single Page Application (SPA)
- */
-app.use("/static", express.static("react/build/static", { extensions: ["html"] }));
-app.use("/react", express.static("react/build", { extensions: ["html"] }));
-
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server is running in port ${PORT}`));
