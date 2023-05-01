@@ -130,5 +130,5 @@ app.get(
 app.use("/static", express.static("react/build/static", { extensions: ["html"] }));
 app.use("/react", express.static("react/build", { extensions: ["html"] }));
 
-app.listen(8787);
-console.log("Server is listening on port 8787");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Server is running in port ${PORT}`));
