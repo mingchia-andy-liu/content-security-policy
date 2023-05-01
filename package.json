@@ -1,0 +1,30 @@
+{
+  "name": "content-security-policy",
+  "version": "1.0.0",
+  "description": "A CSP demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index",
+    "prod": "node dist/index",
+    "build": "esbuild src/index.js --bundle --target=es6 --tree-shaking=true --minify-syntax=true --minify-whitespace=true --platform=node --outdir=dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mingchia-andy-liu/content-security-policy.git"
+  },
+  "author": "Andy Liu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mingchia-andy-liu/content-security-policy/issues"
+  },
+  "homepage": "https://github.com/mingchia-andy-liu/content-security-policy#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-csp-header": "^5.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.17",
+    "prettier": "^2.8.7"
+  }
+}
