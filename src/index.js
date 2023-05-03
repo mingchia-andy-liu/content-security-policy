@@ -1,6 +1,6 @@
 const path = require("path");
 const express = require("express");
-const { expressCspHeader, NONCE } = require("express-csp-header");
+const { expressCspHeader, NONCE, SELF, NONE } = require("express-csp-header");
 
 const app = express();
 const EJS = path.resolve(`${__dirname}/../ejs`);
@@ -10,10 +10,6 @@ const PUBLIC = path.resolve(`${__dirname}/../public`);
 app.set("view engine", "ejs");
 
 /**
- * NO CSP
- *
- * /xss
- *
  * Server by static files
  */
 app.use(express.static("public", { extensions: ["html"] }));
@@ -51,7 +47,7 @@ app.get(
   "/hash",
   expressCspHeader({
     directives: {
-      "script-src": ["'self'", "'sha256-z3MGfz90JNhIhwtX4cVwlPL68VW5e8s76qSDIcfLtY4='"],
+      "script-src": [SELF, "'sha256-z3MGfz90JNhIhwtX4cVwlPL68VW5e8s76qSDIcfLtY4='"],
     },
   }),
   (req, res) => {
@@ -66,7 +62,7 @@ app.get(
   "/twitter-1",
   expressCspHeader({
     directives: {
-      "script-src": ["'self'"],
+      "script-src": [SELF],
     },
   }),
   (req, res) => {
@@ -82,7 +78,7 @@ app.get(
   "/twitter-2",
   expressCspHeader({
     directives: {
-      "script-src": ["'self'", "'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='"],
+      "script-src": [SELF, "'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='"],
     },
   }),
   (req, res) => {
@@ -99,7 +95,7 @@ app.get(
   "/twitter-3",
   expressCspHeader({
     directives: {
-      "script-src": ["'self'", "'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='", "platform.twitter.com"],
+      "script-src": [SELF, "'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='", "platform.twitter.com"],
     },
   }),
   (req, res) => {
@@ -115,7 +111,9 @@ app.get(
   "/twitter-4",
   expressCspHeader({
     directives: {
-      "script-src": ["'self'", NONCE, "'strict-dynamic'", "'unsafe-inline'", "http:", "https:"],
+      'base-uri': [NONE],
+      "script-src": [NONCE, "'strict-dynamic'", "'unsafe-inline'", "http:", "https:"],
+      'object-src': [NONE]
     },
   }),
   (req, res) => {
