@@ -36,13 +36,14 @@
       <img src="https://place-puppy.com/500x500">
       <!-- Injected script block -->
       <script>
+        console.log("Malicious script block executing ...");
         setTimeout(() => {
-          document.querySelector('h1').textContent = 'Cats are better'
-          console.log("Malicious script block executing ...");
-        }, 3000);
+          document.querySelector('h1').textContent = 'Cats are better';
+          document.querySelectorAll('img').forEach(i => i.src = i.src.replace('https://place-puppy.com', 'https://placekitten.com').replace('x', '/'));
+        }, 1000);
       </script>
     </li>
-    <pre>&lt;script&gt;&NewLine;  setTimeout&lpar;&lpar;&rpar; &equals;&gt; &lcub;&NewLine;    document&period;querySelector&lpar;&apos;h1&apos;&rpar;&period;textContent &equals; &apos;Cats are better&apos;&NewLine;    console&period;log&lpar;&quot;Malicious script block executing &period;&period;&period;&quot;&rpar;&semi;&NewLine;  &rcub;&comma; 3000&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
+    <pre>&lt;script&gt;&NewLine;  console&period;log&lpar;&quot;Malicious script block executing &period;&period;&period;&quot;&rpar;&semi;&NewLine;  setTimeout&lpar;&lpar;&rpar; &equals;&gt; &lcub;&NewLine;    document&period;querySelector&lpar;&apos;h1&apos;&rpar;&period;textContent &equals; &apos;Cats are better&apos;&semi;&NewLine;    document&period;querySelectorAll&lpar;&apos;img&apos;&rpar;&period;forEach&lpar;i &equals;&gt; i&period;src &equals; i&period;src&period;replace&lpar;&apos;https&colon;&sol;&sol;place-puppy&period;com&apos;&comma; &apos;https&colon;&sol;&sol;placekitten&period;com&apos;&rpar;&period;replace&lpar;&apos;x&apos;&comma; &apos;&sol;&apos;&rpar;&rpar;&semi;&NewLine;  &rcub;&comma; 1000&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
     <li>Cooper
       <img src="https://place-puppy.com/600x600">
       <!-- Injected remote code file -->
