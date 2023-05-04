@@ -2,25 +2,24 @@
 <html>
 
 <head>
-  <style>
-    body {
-      text-align: center;
-    }
 
-    iframe {
-      max-width: 50% !important;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
   <h1>Want to see the best doggo?</h1>
+
+  <div style="margin-bottom: 2rem;">
+    <code>Content-Security-Policy: script-src <%= csp %>;</code>
+  </div>
+  <pre>
+&lt;script&gt;&NewLine;  window&period;twttr &equals; &lpar;function &lpar;d&comma; s&comma; id&rpar; &lcub;&NewLine;    var js&comma; fjs &equals; d&period;getElementsByTagName&lpar;s&rpar;&lsqb;0&rsqb;&comma;&NewLine;      t &equals; window&period;twttr &verbar;&verbar; &lcub;&rcub;&semi;&NewLine;    if &lpar;d&period;getElementById&lpar;id&rpar;&rpar; return t&semi;&NewLine;    js &equals; d&period;createElement&lpar;s&rpar;&semi;&NewLine;    js&period;id &equals; id&semi;&NewLine;    js&period;src &equals; &quot;https&colon;&sol;&sol;platform&period;twitter&period;com&sol;widgets&period;js&quot;&semi;&NewLine;    fjs&period;parentNode&period;insertBefore&lpar;js&comma; fjs&rpar;&semi;&NewLine;&NewLine;    t&period;&lowbar;e &equals; &lsqb;&rsqb;&semi;&NewLine;    t&period;ready &equals; function &lpar;f&rpar; &lcub;&NewLine;      t&period;&lowbar;e&period;push&lpar;f&rpar;&semi;&NewLine;    &rcub;&semi;&NewLine;&NewLine;    return t&semi;&NewLine;  &rcub;&lpar;document&comma; &quot;script&quot;&comma; &quot;twitter-wjs&quot;&rpar;&rpar;&semi;&NewLine;&lt;&sol;script&gt;
+  </pre>
+
   <a class="twitter-timeline" href="https://twitter.com/dog_rates">Tweets by @dog_rates</a>
 
   <!-- The best way to load twitter timeline. https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/set-up-twitter-for-websites -->
-  <script nonce="<%= nonce %>">
+  <script>
     window.twttr = (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
         t = window.twttr || {};

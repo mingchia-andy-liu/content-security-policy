@@ -58,11 +58,11 @@
     <pre>&lt;script src&equals;&quot;https&colon;&sol;&sol;www&period;google&period;com&sol;complete&sol;search&quest;client&equals;chrome&amp;q&equals;concur&amp;callback&equals;alert&quot;&gt;&lt;&sol;script&gt;</pre>
   </ol>
   <button id="counter">Count the how many good boys are there!</button>
-  <pre>&lt;script nonce="<%= nonce %>"&gt;&NewLine;  const numberOfDogs &equals; document&period;querySelectorAll&lpar;&apos;li&apos;&rpar;&period;length&semi;&NewLine;  document&period;getElementById&lpar;&quot;counter&quot;&rpar;&NewLine;    &period;addEventListener&lpar;&quot;click&quot;&comma; &lpar;&rpar; &equals;&gt; alert&lpar;&grave;There are &dollar;&lcub;numberOfDogs&rcub; dogs in the list&period;&grave;&rpar;&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
+  <pre>&lt;script&gt;&NewLine;  const numberOfDogs &equals; document&period;querySelectorAll&lpar;&apos;li&apos;&rpar;&period;length&semi;&NewLine;  document&period;getElementById&lpar;&quot;counter&quot;&rpar;&NewLine;    &period;addEventListener&lpar;&quot;click&quot;&comma; &lpar;&rpar; &equals;&gt; alert&lpar;&grave;There are &dollar;&lcub;numberOfDogs&rcub; dogs in the list&period;&grave;&rpar;&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
     
   <!-- scripts -->
-  <script src="/js/script.js" nonce="<%= nonce %>"></script>
-  <script nonce="<%= nonce %>">
+  <script src="/js/script.js"></script>
+  <script>
     const numberOfDogs = document.querySelectorAll('li').length;
     document.getElementById("counter")
       .addEventListener("click", () => alert(`There are ${numberOfDogs} dogs in the list.`));

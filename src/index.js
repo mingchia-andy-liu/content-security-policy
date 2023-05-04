@@ -36,7 +36,7 @@ app.get(
     },
   }),
   (req, res) => {
-    res.render(`${EJS}/xss`, { nonce: req.nonce });
+    res.render(`${EJS}/xss`, { nonce: req.nonce, csp: `'nonce-${req.nonce}'` });
   }
 );
 
@@ -51,7 +51,7 @@ app.get(
     },
   }),
   (req, res) => {
-    res.sendFile(`${PUBLIC}/xss.html`);
+    res.render(`${EJS}/xss-hash`, {csp: `'self' 'sha256-z3MGfz90JNhIhwtX4cVwlPL68VW5e8s76qSDIcfLtY4='`});
   }
 );
 
@@ -66,7 +66,7 @@ app.get(
     },
   }),
   (req, res) => {
-    res.sendFile(`${PUBLIC}/twitter.html`);
+    res.render(`${EJS}/twitter`, { csp: "'self'" });
   }
 );
 
@@ -82,7 +82,7 @@ app.get(
     },
   }),
   (req, res) => {
-    res.sendFile(`${PUBLIC}/twitter.html`);
+    res.render(`${EJS}/twitter`, { csp: `'self' 'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='` });
   }
 );
 
@@ -99,7 +99,7 @@ app.get(
     },
   }),
   (req, res) => {
-    res.sendFile(`${PUBLIC}/twitter.html`);
+    res.render(`${EJS}/twitter`, { csp: `'self' 'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ=' platform.twitter.com` });
   }
 );
 
@@ -112,12 +112,12 @@ app.get(
   expressCspHeader({
     directives: {
       'base-uri': [NONE],
-      "script-src": [NONCE, "'strict-dynamic'", "'unsafe-inline'", "http:", "https:"],
+      "script-src": [NONCE,  "'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='", "'strict-dynamic'"],
       'object-src': [NONE]
     },
   }),
   (req, res) => {
-    res.render(`${EJS}/twitter`, { nonce: req.nonce });
+    res.render(`${EJS}/twitter`, { csp: `'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ=' 'strict-dynamic'` });
   }
 );
 

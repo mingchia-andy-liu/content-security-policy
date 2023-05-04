@@ -17,6 +17,9 @@
 <body>
   <h1>A list of the best dogs! 🐶</h1>
   <p>Imagine the list is populate by user input and no sanitization or output escaping. Code block are the "injections".</p>
+  <div style="margin-bottom: 2rem;">
+    <code>No Content-Security-Policy header</code>
+  </div>
   <ol>
     <li>Max
       <img src="https://place-puppy.com/300x300">
@@ -55,6 +58,7 @@
     <pre>&lt;script src&equals;&quot;https&colon;&sol;&sol;www&period;google&period;com&sol;complete&sol;search&quest;client&equals;chrome&amp;q&equals;concur&amp;callback&equals;alert&quot;&gt;&lt;&sol;script&gt;</pre>
   </ol>
   <button id="counter">Count the how many good boys are there!</button>
+  <pre>&lt;script&gt;&NewLine;  const numberOfDogs &equals; document&period;querySelectorAll&lpar;&apos;li&apos;&rpar;&period;length&semi;&NewLine;  document&period;getElementById&lpar;&quot;counter&quot;&rpar;&NewLine;    &period;addEventListener&lpar;&quot;click&quot;&comma; &lpar;&rpar; &equals;&gt; alert&lpar;&grave;There are &dollar;&lcub;numberOfDogs&rcub; dogs in the list&period;&grave;&rpar;&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
 
   <!-- scripts -->
   <script src="/js/script.js"></script>
