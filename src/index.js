@@ -112,7 +112,7 @@ app.get(
   expressCspHeader({
     directives: {
       'base-uri': [NONE],
-      "script-src": [NONCE,  "'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='", "'strict-dynamic'"],
+      "script-src": ["'sha256-rS2m0YpmTIVm725d2RK4w8Nkh/+xHJIpv96TRPP0LXQ='", "'strict-dynamic'"],
       'object-src': [NONE]
     },
   }),
